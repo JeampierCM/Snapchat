@@ -6,7 +6,9 @@ target 'Snapchat' do
   use_frameworks!
 
   # Pods for Snapchat
-  pod 'FirebaseAuth'
-  pod 'FirebaseFirestore'
+  pod 'Firebase/Core', '9.1.0'
+  pod 'Firebase/Database', '9.1.0'
+  pod 'Firebase/Auth', '9.1.0'
+  pod 'Firebase/Storage', '9.1.0'
 
 end
