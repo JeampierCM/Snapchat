@@ -95,11 +95,23 @@
         <!--Snaps View Controller-->
         <scene sceneID="xna-yn-MRd">
             <objects>
-                <viewController id="NYk-aH-LtQ" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="NYk-aH-LtQ" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qVG-xL-b2n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KFv-9G-s7k">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KFv-9G-s7k" firstAttribute="top" secondItem="iZQ-Zd-nxW" secondAttribute="top" id="c6f-3e-Csj"/>
+                            <constraint firstItem="iZQ-Zd-nxW" firstAttribute="bottom" secondItem="KFv-9G-s7k" secondAttribute="bottom" id="eBb-mp-7On"/>
+                            <constraint firstItem="iZQ-Zd-nxW" firstAttribute="trailing" secondItem="KFv-9G-s7k" secondAttribute="trailing" id="oam-c7-b2L"/>
+                            <constraint firstItem="KFv-9G-s7k" firstAttribute="leading" secondItem="iZQ-Zd-nxW" secondAttribute="leading" id="pkn-lF-JqS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iZQ-Zd-nxW"/>
                     </view>
                     <navigationItem key="navigationItem" id="Kh3-3H-cjk">
@@ -114,10 +126,61 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tablaSnaps" destination="KFv-9G-s7k" id="vb4-8u-Xy0"/>
+                        <segue destination="rav-7g-FM4" kind="show" identifier="versnapsegue" id="JkI-R3-RB1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onz-nN-Mwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1551" y="73"/>
+        </scene>
+        <!--Ver Snap View Controller-->
+        <scene sceneID="BRw-Kv-19M">
+            <objects>
+                <viewController id="rav-7g-FM4" customClass="VerSnapViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vwB-dl-XQy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mensaje:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRT-KX-Cbd">
+                                <rect key="frame" x="20" y="138" width="83" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Imagen Enviada:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZv-Av-Kji">
+                                <rect key="frame" x="20" y="198" width="151" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wK9-b0-eIY">
+                                <rect key="frame" x="41" y="253" width="334" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzX-lJ-Hmq">
+                                <rect key="frame" x="111" y="138" width="264" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="IMf-2m-J0j"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qYK-zl-juk"/>
+                    <connections>
+                        <outlet property="imagenView" destination="wK9-b0-eIY" id="IK6-h2-Inc"/>
+                        <outlet property="lblMensaje" destination="tzX-lJ-Hmq" id="JHP-5K-sUR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wG-Az-tpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1568.1159420289857" y="727.90178571428567"/>
         </scene>
         <!--Enviar Mensaje-->
         <scene sceneID="GDY-t9-T8o">
@@ -239,6 +302,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person.crop.square" catalog="system" width="64" height="56"/>
+        <image name="person.crop.square" catalog="system" width="32" height="32"/>
     </resources>
 </document>
